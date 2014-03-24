@@ -1,0 +1,12 @@
+#!/bin/bash
+# Prefer backports packages for kernel and ssh. Includes dependencies from backports for these.
+
+if $use_backports_packages; then
+echo 'using backports'
+mkdir -p $imagedir/etc/apt/preferences.d
+cat >> $imagedir/etc/apt/preferences.d/backports.pref <<EOF
+Package: linux-image-* initramfs-tools init-system-helpers openssh-sftp-server openssh-client openssh-server
+Pin: release n=wheezy-backports
+Pin-Priority: 500
+EOF
+fi

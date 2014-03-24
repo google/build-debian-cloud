@@ -10,7 +10,7 @@ build_date=$(date +%Y-%m-%d)
 volume_size='10'
 apt_mirrors='http://gce_debian_mirror.storage.googleapis.com/ http://http.debian.net/debian'
 backports_mirrors='http://gce_debian_mirror.storage.googleapis.com/ http://ftp.debian.org/debian'
-use_backports_kernel=false
+use_backports_packages=false
 gce_kernel=projects/google/global/kernels/gce-v20130813
 
 # $description is set later if it has no value yet. This is
@@ -39,7 +39,7 @@ ${txtund}Bootstrapping${txtdef}
     --description DESC            Description of the image (${txtbld}${default_description}${txtdef})
     --apt-mirrors \"URL[ URL...]\"  APT mirror URLs, space-separated (${txtbld}${apt_mirrors}${txtdef})
     --backports-mirrors \"URL[ URL...]\"  Backports APT mirror URLs, space-separated (${txtbld}${apt_mirrors}${txtdef})
-    --use-backports-kernel [true|false]  True if backports kernel should be used (${txtbld}${apt_mirrors}${txtdef})
+    --use-backports-packages [true|false]  True if backports packages should be used (${txtbld}${apt_mirrors}${txtdef})
 
 ${txtund}GCE${txtdef}
     --gcs-dest URL                Google Cloud Storage image destination URL prefix (${txtbld}${gcs_dest}${txtdef})
@@ -62,7 +62,7 @@ while [ $# -gt 0 ]; do
 		--description)          description=$2;                shift 2 ;;
 		--apt-mirrors)          apt_mirrors=$2;                shift 2 ;;
 		--backports-mirrors)    backports_mirrors=$2;          shift 2 ;;
-		--use-backports-kernel) use_backports_kernel=$2;       shift 2 ;;
+		--use-backports-packages) use_backports_packages=$2;   shift 2 ;;
 		--gcs-dest)             gcs_dest=$2;                   shift 2 ;;
 		--gce-project)          gce_project=$2;                shift 2 ;;
 		--gce-kernel)           gce_kernel=$2;                 shift 2 ;;
