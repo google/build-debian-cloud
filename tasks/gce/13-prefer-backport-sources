@@ -1,7 +1,7 @@
 #!/bin/bash
 # Basic backports.list. Used to install kernel from backports
 
-if $use_backports_kernel; then
+if $use_backports_packages; then
 echo 'using backports'
 for backports_mirror in $backports_mirrors; do
 cat >> $imagedir/etc/apt/sources.list.d/backports.list <<EOF

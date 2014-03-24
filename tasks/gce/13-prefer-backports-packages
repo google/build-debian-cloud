@@ -1,7 +1,7 @@
 #!/bin/bash
 # Prefer backports kernel
 
-if $use_backports_kernel; then
+if $use_backports_packages; then
 echo 'using backports'
 cat >> $imagedir/etc/apt/preferences.d/backports.pref <<EOF
 Package: linux-image-* initramfs-tools init-system-helpers openssh-sftp-server openssh-client openssh-server
