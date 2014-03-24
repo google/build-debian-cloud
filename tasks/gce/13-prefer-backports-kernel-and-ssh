@@ -1,5 +1,5 @@
 #!/bin/bash
-# Prefer backports kernel
+# Prefer backports packages for kernel and ssh. Includes dependencies from backports for these.
 
 if $use_backports_packages; then
 echo 'using backports'
