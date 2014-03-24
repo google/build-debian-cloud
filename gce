@@ -62,7 +62,7 @@ while [ $# -gt 0 ]; do
 		--description)          description=$2;                shift 2 ;;
 		--apt-mirrors)          apt_mirrors=$2;                shift 2 ;;
 		--backports-mirrors)    backports_mirrors=$2;          shift 2 ;;
-		--use-backports-packages) use-backports-packages=$2;   shift 2 ;;
+		--use-backports-packages) use_backports_packages=$2;   shift 2 ;;
 		--gcs-dest)             gcs_dest=$2;                   shift 2 ;;
 		--gce-project)          gce_project=$2;                shift 2 ;;
 		--gce-kernel)           gce_kernel=$2;                 shift 2 ;;
