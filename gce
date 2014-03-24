@@ -39,7 +39,7 @@ ${txtund}Bootstrapping${txtdef}
     --description DESC            Description of the image (${txtbld}${default_description}${txtdef})
     --apt-mirrors \"URL[ URL...]\"  APT mirror URLs, space-separated (${txtbld}${apt_mirrors}${txtdef})
     --backports-mirrors \"URL[ URL...]\"  Backports APT mirror URLs, space-separated (${txtbld}${apt_mirrors}${txtdef})
-    --use_backports_packages [true|false]  True if backports packages should be used (${txtbld}${apt_mirrors}${txtdef})
+    --use-backports-packages [true|false]  True if backports packages should be used (${txtbld}${apt_mirrors}${txtdef})
 
 ${txtund}GCE${txtdef}
     --gcs-dest URL                Google Cloud Storage image destination URL prefix (${txtbld}${gcs_dest}${txtdef})
@@ -62,7 +62,7 @@ while [ $# -gt 0 ]; do
 		--description)          description=$2;                shift 2 ;;
 		--apt-mirrors)          apt_mirrors=$2;                shift 2 ;;
 		--backports-mirrors)    backports_mirrors=$2;          shift 2 ;;
-		--use_backports_packages) use_backports_packages=$2;   shift 2 ;;
+		--use-backports-packages) use-backports-packages=$2;   shift 2 ;;
 		--gcs-dest)             gcs_dest=$2;                   shift 2 ;;
 		--gce-project)          gce_project=$2;                shift 2 ;;
 		--gce-kernel)           gce_kernel=$2;                 shift 2 ;;
