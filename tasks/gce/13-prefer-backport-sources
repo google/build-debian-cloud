@@ -3,6 +3,7 @@
 
 if $use_backports_packages; then
 echo 'using backports'
+mkdir -p $imagedir/etc/apt/sources.list.d
 for backports_mirror in $backports_mirrors; do
 cat >> $imagedir/etc/apt/sources.list.d/backports.list <<EOF
 deb     $backports_mirror wheezy-backports         main contrib non-free
