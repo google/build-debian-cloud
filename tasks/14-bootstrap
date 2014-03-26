@@ -44,3 +44,10 @@ debootstrap --arch $arch --unpack-tarball=$tarball \
 	${include_param} ${exclude_param} \
 	$codename $imagedir $bootstrap_mirror | spin
 [ $PIPESTATUS == 0 ] || die "Bootstrapping failed!"
+
+log backports.list
+ls $imagedir/etc/apt/sources.list.d/
+cat $imagedir/etc/apt/sources.list.d/backports.list
+log backports.pref
+ls $imagedir/etc/apt/preferences.d/
+cat $imagedir/etc/apt/preferences.d/backports.pref
