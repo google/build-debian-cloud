@@ -33,6 +33,7 @@ fi
 # we create a tarball containing all the necessary things for bootstrapping
 if [ ! -e "$tarball" ]; then
 	log "Creating the bootstrap tarball"
+	log "debootstrap --arch $arch --make-tarball=$tarball ${include_param} ${exclude_param} $codename $imagedir $bootstrap_mirror"
 	debootstrap --arch $arch --make-tarball=$tarball \
 		${include_param} ${exclude_param} \
 		$codename $imagedir $bootstrap_mirror | spin
@@ -40,19 +41,7 @@ if [ ! -e "$tarball" ]; then
 fi
 
 log "Bootstrapping"
-log backports.list
-ls $imagedir/etc/apt/sources.list.d/
-cat $imagedir/etc/apt/sources.list.d/backports.list
-log backports.pref
-ls $imagedir/etc/apt/preferences.d/
 debootstrap --arch $arch --unpack-tarball=$tarball \
 	${include_param} ${exclude_param} \
 	$codename $imagedir $bootstrap_mirror | spin
 [ $PIPESTATUS == 0 ] || die "Bootstrapping failed!"
-
-log backports.list
-ls $imagedir/etc/apt/sources.list.d/
-cat $imagedir/etc/apt/sources.list.d/backports.list
-log backports.pref
-ls $imagedir/etc/apt/preferences.d/
-cat $imagedir/etc/apt/preferences.d/backports.pref
