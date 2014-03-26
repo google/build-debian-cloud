@@ -1,2 +1,4 @@
 euca2ools-*
 bootstrap-[a-z0-9]*.tar
+.DS_Store
+
