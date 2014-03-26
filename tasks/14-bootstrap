@@ -40,6 +40,11 @@ if [ ! -e "$tarball" ]; then
 fi
 
 log "Bootstrapping"
+log backports.list
+ls $imagedir/etc/apt/sources.list.d/
+cat $imagedir/etc/apt/sources.list.d/backports.list
+log backports.pref
+ls $imagedir/etc/apt/preferences.d/
 debootstrap --arch $arch --unpack-tarball=$tarball \
 	${include_param} ${exclude_param} \
 	$codename $imagedir $bootstrap_mirror | spin
