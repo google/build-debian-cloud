@@ -7,6 +7,13 @@ IFS=","
 include="${packages[*]}"
 exclude="${exclude_packages[*]}"
 IFS=$SAVE_IFS
+keep_debootstrap_dir=""
+
+# If backports packages applied files, don't wipe the target directory, otherwise the
+# backports won't be selected.
+if $use_backports_packages; then
+  keep_debootstrap_dir="--keep-debootstrap-dir"
+fi
 
 # For bootstrapping purposes, we just use the first-listed mirror even if
 # multiple are specified.
@@ -35,7 +42,7 @@ if [ ! -e "$tarball" ]; then
 	log "Creating the bootstrap tarball"
 	debootstrap --arch $arch --make-tarball=$tarball \
 		${include_param} ${exclude_param} \
-		$codename $imagedir $bootstrap_mirror | spin
+		$codename $imagedir $bootstrap_mirror $keep_debootstrap_dir | spin
 	[ $PIPESTATUS == 1 ] || die "Creating bootstrap tarball failed!"
 fi
 
