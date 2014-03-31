@@ -10,4 +10,3 @@ Pin: release n=wheezy-backports
 Pin-Priority: 500
 EOF
 fi
-cat $imagedir/etc/apt/preferences.d/backports.pref

@@ -11,4 +11,3 @@ deb-src $backports_mirror wheezy-backports         main contrib non-free
 EOF
 done
 fi
-cat $imagedir/etc/apt/sources.list.d/backports.list

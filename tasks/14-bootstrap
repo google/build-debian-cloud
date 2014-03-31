@@ -33,7 +33,6 @@ fi
 # we create a tarball containing all the necessary things for bootstrapping
 if [ ! -e "$tarball" ]; then
 	log "Creating the bootstrap tarball"
-	log "debootstrap --arch $arch --make-tarball=$tarball ${include_param} ${exclude_param} $codename $imagedir $bootstrap_mirror"
 	debootstrap --arch $arch --make-tarball=$tarball \
 		${include_param} ${exclude_param} \
 		$codename $imagedir $bootstrap_mirror | spin
