@@ -2,6 +2,6 @@
 # Update standard packages to the backports version.
 
 if $use_backports_packages; then
-log 'Install Backports Packages'
-chroot $imagedir apt-get -t ${codename}-backports -y install ${backports_packages}
+log 'Installing Backports Packages'
+chroot $imagedir apt-get -t ${codename}-backports -y install ${ssh_packages}
 fi

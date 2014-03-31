@@ -2,11 +2,11 @@
 # Prefer backports packages for kernel and ssh. Includes dependencies from backports for these.
 
 if $use_backports_packages; then
-log 'Activating Backports Kernel and Packages'
+log 'Prefer Backports Kernel and SSH Packages'
 mkdir -p $imagedir/etc/apt/preferences.d
-backports_packages="init-system-helpers openssh-sftp-server openssh-client openssh-server"
+ssh_packages="init-system-helpers openssh-sftp-server openssh-client openssh-server"
 cat >> $imagedir/etc/apt/preferences.d/backports.pref <<EOF
-Package: linux-image-* initramfs-tools ${backports_packages}
+Package: linux-image-* initramfs-tools ${ssh_packages}
 Pin: release n=wheezy-backports
 Pin-Priority: 500
 EOF
