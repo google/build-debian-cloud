@@ -15,3 +15,6 @@ packages+=('grub-pc')
 # In order to make sure a volume is not busy, before unmounting we need lsof
 host_packages+=('lsof')
 host_packages+=('debootstrap')
+
+# Force noninteractive mode for apt-get
+export DEBIAN_FRONTEND='noninteractive'
