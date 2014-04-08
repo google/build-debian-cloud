@@ -3,5 +3,5 @@
 
 DEBS="google-compute-daemon google-startup-scripts python-gcimagebundle gcutil"
 for deb in $DEBS; do
-  chroot $imagedir apt-get install --force-yes -y ${deb}
+  chroot $imagedir apt-get install --force-yes -q -y ${deb}
 done

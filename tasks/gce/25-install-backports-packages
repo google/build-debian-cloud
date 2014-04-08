@@ -3,5 +3,5 @@
 
 if $use_backports_packages; then
 log 'Installing Backports Packages'
-chroot $imagedir apt-get -t ${codename}-backports -y install ${ssh_packages}
+chroot $imagedir apt-get -t ${codename}-backports -q -y install ${ssh_packages}
 fi
