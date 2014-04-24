@@ -15,5 +15,5 @@ sed -i -e '/GRUB_TIMEOUT=/s/^.*/GRUB_TIMEOUT=0/' $imagedir/etc/default/grub
 # kernel command line.
 sed -i -e '/GRUB_CMDLINE_LINUX=/s/\( \)\?"$/\1console=ttyS0,38400n8"/' \
     $imagedir/etc/default/grub
-sed -i -e '/GRUB_TERMINAL=/s/^.*/GRUB_TERMINAL="serial --unit=0 --speed=38400 --word=8 --parity=no --stop=1"' \
+sed -i -e '/GRUB_TERMINAL=/s/^.*/GRUB_TERMINAL="serial --unit=0 --speed=38400 --word=8 --parity=no --stop=1"/' \
     $imagedir/etc/default/grub
