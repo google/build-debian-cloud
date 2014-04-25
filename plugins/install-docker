@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+export TASK_INITSCRIPTS="51-init-scripts"
+
+insert_task_after $TASK_PACKAGES \
+	$plugindir/install-docker-tasks/add-docker-deps
+insert_task_after $TASK_APT_UPGRADE \
+	$plugindir/install-docker-tasks/add-docker-binary
+insert_task_before $TASK_INITSCRIPTS \
+        $plugindir/install-docker-tasks/add-docker-init

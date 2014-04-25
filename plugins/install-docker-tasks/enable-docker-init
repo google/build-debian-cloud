@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+update-rc.d docker defaults
