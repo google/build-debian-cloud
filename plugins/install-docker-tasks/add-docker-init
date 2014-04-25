@@ -1,7 +1,10 @@
 #!/bin/bash
-set -e
 
 # https://github.com/dotcloud/docker/blob/master/contrib/init/sysvinit-debian/docker
-init_scripts+=("$scriptdir/plugins/install-docker-tasks/files/init.d/docker")
+cp "$scriptdir/plugins/install-docker-tasks/files/init.d/docker" "$imagedir/etc/init.d/docker"
+chmod +x $imagedir/etc/init.d/docker
+
 # https://github.com/dotcloud/docker/blob/master/contrib/init/sysvinit-debian/docker.default
 cp "$scriptdir/plugins/install-docker-tasks/files/default/docker" "$imagedir/etc/default/docker"
+
+chroot $imagedir update-rc.d docker defaults
