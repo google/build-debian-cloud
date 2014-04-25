@@ -4,5 +4,4 @@ set -e
 [[ $arch = 'amd64' ]] || (echo "unsupported arch: $arch"; exit 1)
 wget -O $imagedir/usr/bin/docker https://get.docker.io/builds/Linux/x86_64/docker-latest
 
-
 chmod +x $imagedir/usr/bin/docker
