@@ -27,5 +27,4 @@ fi
 
 log "Adding image \"${image_name}\" to GCE project \"${gce_project}\""
 gcutil --project="${gce_project}" addimage "${image_name}" \
-  "${gcs_dest}/${tarball_name}" --description="${description}" \
-  --preferred_kernel="${gce_kernel}"
+  "${gcs_dest}/${tarball_name}" --description="${description}"
