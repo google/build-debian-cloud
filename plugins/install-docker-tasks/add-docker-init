@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# https://github.com/dotcloud/docker/blob/master/contrib/init/sysvinit-debian/docker
+# From https://github.com/dotcloud/docker/blob/master/contrib/init/sysvinit-debian/docker
+# No patches.
 cp "$scriptdir/plugins/install-docker-tasks/files/init.d/docker" "$imagedir/etc/init.d/docker"
 chmod +x $imagedir/etc/init.d/docker
 
-# https://github.com/dotcloud/docker/blob/master/contrib/init/sysvinit-debian/docker.default
+# From https://github.com/dotcloud/docker/blob/master/contrib/init/sysvinit-debian/docker.default
+# DOCKER_OPTS patched:
+# - add -H :4243
+# - add -r=false
 cp "$scriptdir/plugins/install-docker-tasks/files/default/docker" "$imagedir/etc/default/docker"
 
 chroot $imagedir update-rc.d docker defaults
