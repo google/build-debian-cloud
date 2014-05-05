@@ -1,0 +1,9 @@
+#! /bin/bash
+
+wget -O $imagedir/tmp/google-cloud-sdk-coretools-linux-x86_64.tar.gz https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk-coretools-linux-x86_64.tar.gz
+
+mkdir -p $imagedir/usr/local/share/google
+tar xf $imagedir/tmp/google-cloud-sdk-coretools-linux-x86_64.tar.gz -C $imagedir/usr/local/share/google
+ln -s ../share/google/google-cloud-sdk/bin/gsutil $imagedir/usr/local/bin/gsutil
+ln -s ../share/google/google-cloud-sdk/bin/gcutil $imagedir/usr/local/bin/gcutil
+ln -s ../share/google/google-cloud-sdk/bin/gcloud $imagedir/usr/local/bin/gcloud
