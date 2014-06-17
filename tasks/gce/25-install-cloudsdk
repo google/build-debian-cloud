@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Fetch Cloud SDK's sha1sum file to identify the latest version of Cloud SDK,
+# then download that version.
 cloudsdk_url_prefix="https://dl.google.com/dl/cloudsdk/release"
 cloudsdk_regex='^packages\/google-cloud-sdk-coretools-linux-[0-9]*\.tar\.gz$'
 cloudsdk_url_suffix="$(wget -O- "${cloudsdk_url_prefix}/sha1.txt" \
