@@ -1,9 +1,17 @@
-#! /bin/bash
+#!/bin/bash
 
-wget -O $imagedir/tmp/google-cloud-sdk-coretools-linux-x86_64.tar.gz https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk-coretools-linux-x86_64.tar.gz
+# Fetch Cloud SDK's sha1sum file to identify the latest version of Cloud SDK,
+# then download that version.
+cloudsdk_url_prefix="https://dl.google.com/dl/cloudsdk/release"
+cloudsdk_regex='^packages\/google-cloud-sdk-coretools-linux-[0-9]*\.tar\.gz$'
+cloudsdk_url_suffix="$(wget -O- "${cloudsdk_url_prefix}/sha1.txt" \
+                           | awk "\$2 ~ /${cloudsdk_regex}/ { print \$2 }")"
+cloudsdk_url="${cloudsdk_url_prefix}/${cloudsdk_url_suffix}"
+wget -P $imagedir/tmp/ "${cloudsdk_url}"
 
 mkdir -p $imagedir/usr/local/share/google
-tar xf $imagedir/tmp/google-cloud-sdk-coretools-linux-x86_64.tar.gz -C $imagedir/usr/local/share/google
+tar xf $imagedir/tmp/google-cloud-sdk-coretools-linux-*.tar.gz \
+    -C $imagedir/usr/local/share/google --no-same-owner
 ln -s ../share/google/google-cloud-sdk/bin/gsutil $imagedir/usr/local/bin/gsutil
 ln -s ../share/google/google-cloud-sdk/bin/gcutil $imagedir/usr/local/bin/gcutil
 ln -s ../share/google/google-cloud-sdk/bin/gcloud $imagedir/usr/local/bin/gcloud
