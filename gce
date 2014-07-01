@@ -11,7 +11,6 @@ volume_size='10'
 apt_mirrors='http://gce_debian_mirror.storage.googleapis.com/ http://http.debian.net/debian'
 backports_mirrors='http://gce_debian_mirror.storage.googleapis.com/ http://ftp.debian.org/debian'
 use_backports_packages=false
-gce_kernel=projects/google/global/kernels/gce-v20130813
 
 # $description is set later if it has no value yet. This is
 # just for the help output.
@@ -44,7 +43,6 @@ ${txtund}Bootstrapping${txtdef}
 ${txtund}GCE${txtdef}
     --gcs-dest URL                Google Cloud Storage image destination URL prefix (${txtbld}${gcs_dest}${txtdef})
     --gce-project PROJECT         Google Compute Engine image destination project (${txtbld}${gce_project}${txtdef})
-    --gce-kernel KERNEL           Google Compute Engine image kernel (${txtbld}${gce_kernel}${txtdef})
 
 ${txtund}Other options${txtdef}
     --debug                       Print debugging information
